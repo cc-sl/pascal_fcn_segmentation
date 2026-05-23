@@ -5,10 +5,11 @@ $ErrorActionPreference = "Stop"
 $ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 Set-Location $ScriptDir
 
-Write-Host "========================================" -ForegroundColor Cyan
-Write-Host "   FCN 语义分割对比实验" -ForegroundColor Cyan
-Write-Host "   resnet18 vs resnet34" -ForegroundColor Cyan
-Write-Host "========================================`n" -ForegroundColor Cyan
+# 修复分隔符字符串的引号闭合问题，统一使用单引号避免转义干扰
+Write-Host '========================================' -ForegroundColor Cyan
+Write-Host '   FCN 语义分割对比实验' -ForegroundColor Cyan
+Write-Host '   resnet18 vs resnet34' -ForegroundColor Cyan
+Write-Host '========================================`n' -ForegroundColor Cyan
 
 $Backbones = @("resnet18", "resnet34")
 
@@ -44,6 +45,7 @@ if ($LASTEXITCODE -ne 0) {
     exit 1
 }
 
+# 修复最后几行的字符串终止符问题
 Write-Host "`n========================================" -ForegroundColor Cyan
-Write-Host "   全部实验完成！" -ForegroundColor Green
-Write-Host "========================================" -ForegroundColor Cyan
+Write-Host '   全部实验完成！' -ForegroundColor Green
+Write-Host '========================================' -ForegroundColor Cyan
