@@ -708,3 +708,36 @@ cat        0.6816
 dog        0.4508
 mIoU       0.6217
 Pixel Accuracy: 0.8592
+
+
+=== Experiment with backbone: resnet18 ===
+权重加载成功，模型已切换为评估模式
+
+Backbone: resnet18
+Class         IoU
+bg         0.8232
+person     0.4563
+car        0.5033
+cat        0.6472
+dog        0.4398
+mIoU       0.5740
+Pixel Accuracy: 0.8395
+
+=== Experiment with backbone: resnet34 ===
+权重加载成功，模型已切换为评估模式
+
+Backbone: resnet34
+Class         IoU
+bg         0.8454
+person     0.4705
+car        0.6601
+cat        0.6816
+dog        0.4508
+mIoU       0.6217
+Pixel Accuracy: 0.8592
+
+=== Comparison Results ===
+Backbone   mIoU Pixel Accuracy Training Time (s) Params (M) Model Size (MB)
+resnet18 0.5740         0.8395              2256.13      17.68           67.51
+resnet34 0.6217         0.8592              3805.64      27.78          106.12
+
