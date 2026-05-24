@@ -122,10 +122,10 @@ def compute_confusion_matrix(model, dataloader, device, num_classes):
             outputs = model(images)
             preds = torch.argmax(outputs, dim=1)
             valid_mask = (labels != IGNORE_INDEX)
-          
+        
             labels_valid = labels[valid_mask].long()
             preds_valid = preds[valid_mask].long()
-          
+        
             # 向量化累加（快几十倍）
             mask = labels_valid * num_classes + preds_valid
             cm = np.bincount(mask.cpu().numpy(), minlength=num_classes * num_classes)
@@ -160,3 +160,13 @@ for c in range(NUM_CLASSES):
 | 向量化混淆矩阵                   | `evaluate.py:22-23` | 🟢 可选 |
 
 **核心结论**：你的模型架构和数据处理没有逻辑错误，问题完全出在损失函数没有处理极端的类别不平衡。给背景低权重、前景高权重，然后重新训练，前景 IoU 就会从 0 显著提升。
+
+
+
+训练第20轮达到最佳，之后损失不再下降
+
+改用余弦退火损失
+
+
+* **StepLR（阶梯下降）** —— 稳定、不容易炸
+* **CosineAnnealingLR（余弦退火）** —— 涨点更高，分割任务首选
