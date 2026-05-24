@@ -3,7 +3,7 @@ import os
 # 自动获取当前 config.py 所在目录（script 文件夹）
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 
-# 数据集路径（已改为绝对路径）
+# 数据集路径
 ROOT = r'c:\code1\pascal_fcn_segmentation\VOCdevkit\VOC2012'
 IMAGE_DIR = os.path.join(ROOT, 'JPEGImages')
 GT_DIR = os.path.join(ROOT, 'SegmentationClass')
@@ -23,7 +23,7 @@ VOC_CLASS_MAP = {
 NUM_CLASSES = 5
 IGNORE_INDEX = 255
 
-# 训练超参数（固定）
+# 训练超参数
 INPUT_SIZE = 256
 BATCH_SIZE = 8
 NUM_EPOCHS = 30
@@ -36,6 +36,6 @@ LR_GAMMA = 0.1
 # 随机种子
 SEED = 42
 
-# 模型保存路径（绝对路径，指向 script/checkpoints）
+# 模型保存路径
 SAVE_DIR = r'c:\code1\pascal_fcn_segmentation\script\checkpoints'
 os.makedirs(SAVE_DIR, exist_ok=True)

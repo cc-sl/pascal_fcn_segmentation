@@ -12,7 +12,7 @@ from models import FCN8s
 from utils import set_seed, colorize_mask
 
 def visualize(backbone, num_samples=3):
-    set_seed(SEED)
+    set_seed(78)
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     model = FCN8s(backbone=backbone, num_classes=NUM_CLASSES).to(device)
     model.load_state_dict(torch.load(os.path.join(SAVE_DIR, f'{backbone}_best.pth'), map_location=device))
@@ -61,7 +61,7 @@ def visualize(backbone, num_samples=3):
 if __name__ == '__main__':
     import argparse
     parser = argparse.ArgumentParser()
-    parser.add_argument('--backbone', type=str, default='resnet18', choices=['resnet18', 'resnet34'])
+    parser.add_argument('--backbone', type=str, default='resnet34', choices=['resnet18', 'resnet34'])
     parser.add_argument('--num_samples', type=int, default=3)
     args = parser.parse_args()
     visualize(args.backbone, args.num_samples)

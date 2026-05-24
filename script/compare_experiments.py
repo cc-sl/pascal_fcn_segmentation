@@ -23,7 +23,7 @@ def main():
     for bk in backbones:
         print(f"\n=== Experiment with backbone: {bk} ===")
         set_seed(SEED)
-        # 训练（记录耗时）
+        # 训练
         timer = Timer()
         timer.start()
         train_main(bk)
