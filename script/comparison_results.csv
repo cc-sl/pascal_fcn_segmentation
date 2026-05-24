@@ -1,3 +1,3 @@
-Backbone,mIoU,Pixel Accuracy,Training Time (s),Params (M),Model Size (MB),Best Val Loss
-ResNet18,0.4704,0.8785,2461.84,?,69.13,1.4692
-ResNet34,0.5442,0.8744,4014.88,?,108.67,1.3805
+Backbone,mIoU,Pixel Accuracy,Training Time (s),Params (M),Model Size (MB)
+resnet18,0.4702,0.8785,2461.84,17.68,67.51
+resnet34,0.5442,0.8744,4014.88,27.78,106.12
