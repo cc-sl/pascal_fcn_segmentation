@@ -1,0 +1,30 @@
+=== Experiment with backbone: resnet18 ===
+权重加载成功，模型已切换为评估模式
+
+Backbone: resnet18
+Class         IoU
+bg         0.8872
+person     0.4339
+car        0.4613
+cat        0.4192
+dog        0.1492
+mIoU       0.4702
+Pixel Accuracy: 0.8785
+
+=== Experiment with backbone: resnet34 ===
+权重加载成功，模型已切换为评估模式
+
+Backbone: resnet34
+Class         IoU
+bg         0.8691
+person     0.4298
+car        0.5750
+cat        0.5163
+dog        0.3309
+mIoU       0.5442
+Pixel Accuracy: 0.8744
+
+=== Comparison Results ===
+Backbone   mIoU Pixel Accuracy Training Time (s) Params (M) Model Size (MB)
+resnet18 0.4702         0.8785              0.00      17.68           67.51
+resnet34 0.5442         0.8744              0.00      27.78          106.12
