@@ -132,6 +132,6 @@ def main(backbone):
 if __name__ == '__main__':
     import argparse
     parser = argparse.ArgumentParser()
-    parser.add_argument('--backbone', type=str, default='resnet18', choices=['resnet18', 'resnet34'])
+    parser.add_argument('--backbone', type=str, default='resnet34', choices=['resnet18', 'resnet34'])
     args = parser.parse_args()
     main(args.backbone)

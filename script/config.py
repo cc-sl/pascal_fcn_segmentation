@@ -9,8 +9,10 @@ IMAGE_DIR = os.path.join(ROOT, 'JPEGImages')
 GT_DIR = os.path.join(ROOT, 'SegmentationClass')
 
 # 训练/验证列表文件
-TRAIN_LIST = os.path.join(ROOT, 'ImageSets/Segmentation/train.txt')
-VAL_LIST = os.path.join(ROOT, 'ImageSets/Segmentation/val.txt')
+# TRAIN_LIST = os.path.join(ROOT, 'ImageSets/Segmentation/train.txt')
+# VAL_LIST = os.path.join(ROOT, 'ImageSets/Segmentation/val.txt')
+TRAIN_LIST = os.path.join(ROOT, 'ImageSets/Segmentation/train_filtered.txt')
+VAL_LIST = os.path.join(ROOT, 'ImageSets/Segmentation/val_filtered.txt')
 
 # 类别映射：VOC 原始标签 -> 新5类索引
 VOC_CLASS_MAP = {
