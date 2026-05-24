@@ -81,7 +81,7 @@ def validate(model, loader, criterion, device):
     return total_loss / len(loader)
 
 
-def main(backbone):
+def main(backbone, resume=None):
     set_seed(SEED)
 
     # 数据集
@@ -92,6 +92,13 @@ def main(backbone):
 
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     model = FCN8s(backbone=backbone, num_classes=NUM_CLASSES).to(device)
+
+    # 加载预训练 FCN 权重继续训练
+    if resume is not None:
+        checkpoint = torch.load(resume, map_location=device)
+        model.load_state_dict(checkpoint)
+        print(f'已加载预训练 FCN 权重: {resume}')
+
 
     class_weights = compute_class_weights(train_dataset, NUM_CLASSES, IGNORE_INDEX)
     criterion_ce = nn.CrossEntropyLoss(weight=class_weights.to(device), ignore_index=IGNORE_INDEX)
@@ -133,5 +140,6 @@ if __name__ == '__main__':
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument('--backbone', type=str, default='resnet18', choices=['resnet18', 'resnet34'])
+    parser.add_argument('--resume', type=str, default=None, help='预训练FCN权重路径，用于继续训练')
     args = parser.parse_args()
-    main(args.backbone)
+    main(args.backbone, args.resume)
