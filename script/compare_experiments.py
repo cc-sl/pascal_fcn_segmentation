@@ -24,11 +24,10 @@ def main():
         print(f"\n=== Experiment with backbone: {bk} ===")
         set_seed(SEED)
         # 训练
-        # timer = Timer()
-        # timer.start()
-        # train_main(bk)
-        # train_time = timer.stop()
-        train_time = 0  # 这里假设训练时间为0，因为我们已经训练好了模型
+        timer = Timer()
+        timer.start()
+        train_main(bk)
+        train_time = timer.stop()
         # 评估
         miou, pa = evaluate(bk)
         param_m, size_mb = get_model_size(bk)
